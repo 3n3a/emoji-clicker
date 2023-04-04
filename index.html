@@ -24,11 +24,12 @@
 
       const textStyle = new PIXI.TextStyle({
         fontFamily: 'Helvetica',
-        fontSize: 64,
+        fontSize: Math.floor(80 * window.devicePixelRatio),
         fontWeight: 'bold',
         fill: ['#f9f295', '#e0aa3e', '#faf398', '#b88a44'],
+        letterSpacing: 4,
         stroke: '#000000',
-        strokeThickness: 5,
+        strokeThickness: Math.floor(10 * (window.devicePixelRatio / 2)),
         align: 'center'
       })
 
@@ -44,7 +45,7 @@
       }
 
       function paint() {
-        PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
+        PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.LINEAR;
 
         // Create the application helper and add its render target to the page
         let app = new PIXI.Application({
