@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .game-content {
+        width: 100%;
+        min-height: 99vh;
+      }
+      /* .game-content > canvas {
+        border: 2px solid red;
+      } */
+    </style>
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
+  </head>
+  <body>
+    <div class="game-content" id="game-body"></div>
+    <script>
+      let gameRootEl = document.getElementById("game-body");
+      let counter = 0;
+
+      const textStyle = new PIXI.TextStyle({
+        fontFamily: 'Helvetica',
+        fontSize: 64,
+        fontWeight: 'bold',
+        fill: ['#f9f295', '#e0aa3e', '#faf398', '#b88a44'],
+        stroke: '#000000',
+        strokeThickness: 5,
+        align: 'center'
+      })
+
+      paint();
+      window.addEventListener("resize", (event) => {
+        console.log("resizse");
+        clear();
+        paint();
+      });
+
+      function clear() {
+        gameRootEl.innerHTML = "";
+      }
+
+      function paint() {
+        PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
+
+        // Create the application helper and add its render target to the page
+        let app = new PIXI.Application({
+          background: "#fff",
+          width: gameRootEl.clientWidth,
+          height: gameRootEl.clientHeight,
+        });
+        gameRootEl.appendChild(app.view);
+
+        
+        // Create the sprite and add it to the stage
+        const sW = app.screen.width / 2;
+        const sH = app.screen.height / 2;
+        let sprite = PIXI.Sprite.from("sprites/smile/smile-large.png");
+        sprite.anchor.set(0.5);
+        sprite.x = sW;
+        sprite.y = sH;
+        sprite.width = 300;
+        sprite.height = 300;
+        sprite.eventMode = "dynamic";
+        sprite.cursor = "pointer";
+        sprite.on("pointerdown", onSpriteClick);
+        
+        app.stage.addChild(sprite);
+        
+        const counterText = new PIXI.Text(counter.toString(), textStyle)
+        counterText.anchor.set(0.5)
+        counterText.x = sW
+        counterText.y = app.screen.height / 6
+
+        app.stage.addChild(counterText)
+
+        /* let border = new PIXI.Graphics();
+        border.lineStyle(2, 0xde3249, 1);
+        border.drawRect(sW - 150, sH - 150, 300, 300);
+        border.endFill();
+
+        app.stage.addChild(border); */
+
+        let isLockedSprite = false;
+
+        function onSpriteClick() {
+          const scaleFactor = 1.12;
+          if (!isLockedSprite) {
+            isLockedSprite = true;
+
+            counter++;
+            counterText.text = counter.toString()
+        
+            sprite.scale.x *= scaleFactor;
+            sprite.scale.y *= scaleFactor;
+
+            setTimeout(() => {
+              sprite.scale.x /= scaleFactor;
+              sprite.scale.y /= scaleFactor;
+              isLockedSprite = false;
+            }, 100);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
