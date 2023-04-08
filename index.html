@@ -42,11 +42,23 @@
         }
         return out;
       }
+      
+      function randSave(key, input) {
+        const randInt = getRandInt();
+        const encoded = b64encode(input, randInt);
+        localStorage.setItem(key, encoded);
+      }
+      
+      function randLoad(key) {
+        const value = localStorage.getItem(key);
+        if (value === null) return null;
+        return b64decode(value);
+      }
     
       const storageKey = 'emoji-cool-awesome-124-game';
       let gameRootEl = document.getElementById("game-body");
       let counter = 0;
-      const localStorageValue = localStorage.getItem(storageKey);
+      const localStorageValue = randLoad(storageKey);
       counter = localStorageValue ?? counter;
       counter = Number(counter);
 
@@ -122,7 +134,7 @@
 
             counter++;
             counterText.text = counter.toString();
-            localStorage.setItem(storageKey, counter.toString());
+            randSave(storageKey, counter.toString());
         
             sprite.scale.x *= scaleFactor;
             sprite.scale.y *= scaleFactor;
