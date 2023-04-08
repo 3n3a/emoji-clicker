@@ -35,9 +35,11 @@
       
       function b64decode(in) {
         const splitIn = in.split('$');
-        const times = splitIn[0];
+        const times = Number(splitIn[0]);
         let out = splitIn[1];
-        // impl
+        for (let i = 0; i < times; i++) {
+          out = atob(out);
+        }
         return out;
       }
     
