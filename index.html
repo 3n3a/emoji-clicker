@@ -19,8 +19,12 @@
   <body>
     <div class="game-content" id="game-body"></div>
     <script>
+      const storageKey = 'emoji-cool-awesome-124-game';
       let gameRootEl = document.getElementById("game-body");
       let counter = 0;
+      const localStorageValue = localStorage.getItem(storageKey);
+      counter = localStorageValue ?? counter;
+      counter = Number(counter);
 
       const textStyle = new PIXI.TextStyle({
         fontFamily: 'Helvetica',
@@ -93,7 +97,8 @@
             isLockedSprite = true;
 
             counter++;
-            counterText.text = counter.toString()
+            counterText.text = counter.toString();
+            localStorage.setItem(storageKey, counter.toString());
         
             sprite.scale.x *= scaleFactor;
             sprite.scale.y *= scaleFactor;
