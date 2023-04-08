@@ -1,0 +1,19 @@
+{
+    "name": "Emoji Clicker",
+    "short_name": "emoji click",
+    "description": "click the emoji, number goes up, happiness increases",
+    "start_url": "https://emoji-clicker.enea.tech",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "../sprites/smile/smile-small.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "../sprites/smile/smile-large.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
