@@ -25,16 +25,16 @@
         return window.crypto.getRandomValues(array)[0];
       }
       
-      function b64encode(in, times) {
-        let out = in;
+      function b64encode(input, times) {
+        let out = input;
         for (let i = 0; i < times; i++) {
           out = btoa(out);
         }
         return times.toString() + '$' + out;
       }
       
-      function b64decode(in) {
-        const splitIn = in.split('$');
+      function b64decode(input) {
+        const splitIn = input.split('$');
         const times = Number(splitIn[0]);
         let out = splitIn[1];
         for (let i = 0; i < times; i++) {
