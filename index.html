@@ -19,6 +19,28 @@
   <body>
     <div class="game-content" id="game-body"></div>
     <script>
+      // Gets random Int between 0 and 255 (2^8 - 1)
+      function getRandInt() {
+        const array = new Int8Array(1);
+        return window.crypto.getRandomValues(array)[0];
+      }
+      
+      function b64encode(in, times) {
+        let out = in;
+        for (let i = 0; i < times; i++) {
+          out = btoa(out);
+        }
+        return times.toString() + '$' + out;
+      }
+      
+      function b64decode(in) {
+        const splitIn = in.split('$');
+        const times = splitIn[0];
+        let out = splitIn[1];
+        // impl
+        return out;
+      }
+    
       const storageKey = 'emoji-cool-awesome-124-game';
       let gameRootEl = document.getElementById("game-body");
       let counter = 0;
