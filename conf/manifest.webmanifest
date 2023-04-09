@@ -1,19 +1,41 @@
 {
-    "name": "Emoji Clicker",
-    "short_name": "emoji click",
-    "description": "click the emoji, number goes up, happiness increases",
-    "start_url": "https://emoji-clicker.3n3a.ch",
-    "display": "standalone",
-    "icons": [
-        {
-            "src": "../sprites/smile/smile-small.png",
-            "type": "image/png",
-            "sizes": "192x192"
-        },
-        {
-            "src": "../sprites/smile/smile-large.png",
-            "type": "image/png",
-            "sizes": "512x512"
-        }
-    ]
+  "name": "Emoji Clicker",
+  "short_name": "emoji click",
+  "description": "click the emoji, number goes up, happiness increases",
+  "start_url": "https://emoji-clicker.3n3a.ch",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "../sprites/smile/smile-small.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "../sprites/smile/smile-large.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "scope": "https://emoji-clicker.3n3a.ch",
+  "orientation": "portrait",
+  "display_override": [
+    "standalone",
+    "fullscreen",
+    "minimal-ui",
+    "browser"
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+emoji",
+      "url": "/"
+    }
+  ],
+  "categories": [
+    "entertainment",
+    "games",
+    "kids"
+  ]
 }
