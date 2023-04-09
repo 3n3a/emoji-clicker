@@ -23,6 +23,11 @@
   </head>
   <body>
     <div class="game-content" id="game-body"></div>
+    <script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('./lib/sw.js')
+  }
+    </script>
     <script src="./lib/game.js"></script>
   </body>
 </html>
