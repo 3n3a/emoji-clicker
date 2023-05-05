@@ -1,6 +1,6 @@
 [{
-        "relation": ["delegate_permission/common.handle_all_urls"],
-        "target" : { "namespace": "android_app", "package_name": "ch.app_3n3a.emoji_clicker.twa",
-                     "sha256_cert_fingerprints": ["E0:96:90:25:70:39:C4:72:F3:98:84:FC:83:7A:2B:83:56:00:EB:0A:C2:3A:B3:97:0A:B3:E5:B2:EC:A1:AA:97"] }
-      }
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "ch.app_3n3a.emoji_clicker.twa",
+                   "sha256_cert_fingerprints": ["FF:52:A0:1C:57:8F:53:D2:B2:0C:ED:32:C4:C6:9D:D8:02:9B:C7:86:47:7A:04:42:05:92:7C:80:68:62:48:BB"] }
+    }
 ]
